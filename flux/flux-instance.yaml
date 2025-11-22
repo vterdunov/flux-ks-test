@@ -10,6 +10,8 @@ spec:
   components:
     - source-controller
     - kustomize-controller
+  cluster:
+    size: small
   sync:
     kind: GitRepository
     url: "https://github.com/vterdunov/flux-ks-test.git"
