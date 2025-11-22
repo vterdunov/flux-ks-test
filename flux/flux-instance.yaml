@@ -1,0 +1,18 @@
+apiVersion: fluxcd.controlplane.io/v1
+kind: FluxInstance
+metadata:
+  name: flux
+  namespace: flux-system
+spec:
+  distribution:
+    version: "2.7.*"
+    registry: "ghcr.io/fluxcd"
+  components:
+    - source-controller
+    - kustomize-controller
+  sync:
+    kind: GitRepository
+    url: "https://github.com/vterdunov/flux-ks-test.git"
+    ref: "refs/heads/main"
+    path: "flux"
+    pullSecret: "flux-system"
